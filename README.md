@@ -4,7 +4,7 @@
 
 ![RJ_Fz](https://github.com/user-attachments/assets/e583d77e-7f5b-4921-aa03-a0f0d49d0881)
 
-図1. リバウンドジャンプ時の鉛直地面反力
+**図1. リバウンドジャンプ時の鉛直地面反力**
 
 ## Matlab
 
@@ -128,7 +128,7 @@ end
 
     - `START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
 
-    `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
+    `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値（図2）です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
    70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
 
    `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`
@@ -136,18 +136,22 @@ end
     さらに、格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
    `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
 
+![trim3](https://github.com/user-attachments/assets/cdbc361b-99be-4e77-805f-874a5c33580d)
+
+**図2. Fzの閾値設定によるFz接地局面の判定 th1=100, th=10に設定**
+
     - `PARAM_NAME`は、変数名である。
     - `FIG`は図の出力設定であり、`1`で出力、`0`は出力しないとなる。
 
-このコードによって任意の閾値を基準に周期的なFzの接地瞬間と離地瞬間を判定可能である（図2）。
+このコードによって任意の閾値を基準に周期的なFzの接地瞬間と離地瞬間を判定可能である（図3）。
 
 ![RJ_Fz(th)](https://github.com/user-attachments/assets/610c0872-b06d-4478-8f1b-181adbe0fc01)
 
-図2. Fzの接地瞬間（赤ライン）および離地瞬間（青ライン）の判定結果
+**図3. Fzの接地瞬間（赤ライン）および離地瞬間（青ライン）の判定結果**
 
 ![RJ_Fz(trim)](https://github.com/user-attachments/assets/2b564078-4b2f-4e3b-943f-9bc3c21546c4)
 
-図3. 各接地局面のFz
+**図4. 各接地局面のFz**
 
 
 
