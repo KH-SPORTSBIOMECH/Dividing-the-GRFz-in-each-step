@@ -1,4 +1,3 @@
-```python
 clc
 clear
 
@@ -155,6 +154,4 @@ function [Rs_table] = CELL2TABLE(CELL, VarName)
     Rs_table = array2table(Var);
     Rs_table.Properties.VariableNames = strcat(VarName, Rs_table.Properties.VariableNames);
 end
-
-```
 
