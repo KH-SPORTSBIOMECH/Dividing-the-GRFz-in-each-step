@@ -134,6 +134,7 @@ end
        `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`
 
         さらに、格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
+      
        `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
 
     - `PARAM_NAME`は、変数名である。
