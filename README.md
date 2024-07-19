@@ -141,7 +141,7 @@ end
 
     - `FIG`は図の出力設定であり、`1`で出力、`0`は出力しないとなる。
 
-![trim3](https://github.com/user-attachments/assets/cdbc361b-99be-4e77-805f-874a5c33580d)
+![trim3](https://github.com/user-attachments/assets/645482aa-5c51-462f-981e-e36f90cd04d9)
 
 **図2. Fzの閾値設定によるFz接地局面の判定 th1=100, th=10に設定**
 
