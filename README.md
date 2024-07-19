@@ -128,13 +128,13 @@ end
 
     - `START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
 
-    `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値（図2）です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
-   70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
+    - `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値（図2）です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
+       70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
 
-   `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`
+       `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`
 
-    さらに、格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
-   `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
+        さらに、格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
+       `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
 
     - `PARAM_NAME`は、変数名である。
 
