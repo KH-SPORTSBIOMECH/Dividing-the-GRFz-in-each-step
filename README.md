@@ -6,7 +6,7 @@
 
 図1. リバウンドジャンプ時の鉛直地面反力
 
-
+## Matlab
 
 ``` matlab
 function [AllSteps, FirstSteps, SecondSteps, CT_points, TOFF_points] = getEachSteps(PARAM, Fz, START, END, th1, th2, PARAM_NAME, FIG)
@@ -121,3 +121,33 @@ function [AllSteps, FirstSteps, SecondSteps, CT_points, TOFF_points] = getEachSt
 end
 
 ```
+
+`getEachSteps(PARAM, Fz, START, END, th1, th2, PARAM_NAME, FIG)`内の`PARAM`と`Fz`はdouble型であり、それぞれ`取得したい変数`と`基準となるFz`を入力します。
+`START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
+`th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
+
+70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
+
+`StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`。
+
+格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
+
+`Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
+
+
+`PARAM_NAME`,` FIG`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
