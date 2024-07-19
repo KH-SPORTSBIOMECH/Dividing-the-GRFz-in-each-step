@@ -2,7 +2,7 @@
 
 ランニングやジャンプなどで観察される周期的な地面反力波形（図1）を鉛直地面反力（Fz）を基準に各接地ごとに分割して取得します。
 
-[RJ_Fz.pdf](https://github.com/user-attachments/files/16303254/RJ_Fz.pdf)
+![RJ_Fz](https://github.com/user-attachments/assets/e583d77e-7f5b-4921-aa03-a0f0d49d0881)
 
 図1. リバウンドジャンプ時の鉛直地面反力
 
