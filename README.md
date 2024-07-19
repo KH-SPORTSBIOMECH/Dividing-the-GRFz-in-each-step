@@ -122,8 +122,12 @@ end
 
 ```
 
-`getEachSteps(PARAM, Fz, START, END, th1, th2, PARAM_NAME, FIG)`内の`PARAM`と`Fz`はdouble型であり、それぞれ`取得したい変数`と`基準となるFz`を入力します。
+関数`getEachSteps(PARAM, Fz, START, END, th1, th2, PARAM_NAME, FIG)`内の各変数について
+
+`PARAM`と`Fz`はdouble型であり、それぞれ`取得したい変数`と`基準となるFz`を入力します。
+
 `START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
+
 `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
 
 70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
