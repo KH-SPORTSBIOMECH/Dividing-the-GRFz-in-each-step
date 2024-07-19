@@ -124,24 +124,30 @@ end
 
 1. 関数`getEachSteps(PARAM, Fz, START, END, th1, th2, PARAM_NAME, FIG)`内の各変数について
 
-    `PARAM`と`Fz`はdouble型であり、それぞれ`取得したい変数`と`基準となるFz`を入力します。
+    - `PARAM`と`Fz`はdouble型であり、それぞれ`取得したい変数`と`基準となるFz`を入力します。
 
-    `START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
+    - `START, END`に数値を入力することで解析する局面をトリミングすることが可能です。
 
     `th1, th2`は、Fzの接地瞬間と離地瞬間の基準となる閾値です。まず、`th1`で大まかな閾値を設定しましょう。これは、Fzの出ることのない滞空局面でth2を超えるノイズが出現した際に有効な手段となります。
+   70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します：
 
-    70行目の`ADD_POINT = 10;`でth1の地点から前後10ポイントのFzデータを格納します： `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`。
+   `StancePhase_Fz_i = th_FzData(CT_points(k)-ADD_POINT:TOFF_points(k)+ADD_POINT);`
 
-    格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます： `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
+    さらに、格納したデータから`th2`以上のデータを取得することで接地局面のデータを取得することができます：
+   `Phase_th2{k} = StancePhase_Main_i(StancePhase_Fz_i >= th2);`
 
+    - `PARAM_NAME`は、変数名である。
+    - `FIG`は図の出力設定であり、`1`で出力、`0`は出力しないとなる。
 
-`PARAM_NAME`,` FIG`
+このコードによって任意の閾値を基準に周期的なFzの接地瞬間と離地瞬間を判定可能である（図2）。
 
+![RJ_Fz(th)](https://github.com/user-attachments/assets/610c0872-b06d-4478-8f1b-181adbe0fc01)
 
+図2. Fzの接地瞬間（赤ライン）および離地瞬間（青ライン）の判定結果
 
+![RJ_Fz(trim)](https://github.com/user-attachments/assets/2b564078-4b2f-4e3b-943f-9bc3c21546c4)
 
-
-
+図3. 各接地局面のFz
 
 
 
